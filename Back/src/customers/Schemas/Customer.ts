@@ -11,7 +11,6 @@ export class Customer extends Document {
 
   @Prop()
   birthdate: string;
-  
 
   @Prop()
   mail: string;
