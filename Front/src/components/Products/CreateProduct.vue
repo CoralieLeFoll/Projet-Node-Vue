@@ -49,7 +49,6 @@
 
 <script>
   import { validationMixin } from 'vuelidate'
-  import Product from '../../models/Product'
   import {
     required,
     minLength,
@@ -98,9 +97,8 @@
         this.form.description = null
       },
       saveProduct () {
-        let newProduct = new Product(this.broofa(), this.form.name, this.form.price, this.form.description)
-        this.$store.commit("createProduct", newProduct)
-        localStorage.setItem('products', JSON.stringify({...this.$store.getters.getProducts}))
+        console.log(this.form)
+          this.$store.dispatch('createProduct', this.form)
       },
       validateProduct () {
         this.$v.$touch()
@@ -109,13 +107,7 @@
           this.saveProduct()
         }
       },
-      broofa() {
-        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-            var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
-            return v.toString(16);
-        });
-      }
-  }
+    }
   }
 </script>
 

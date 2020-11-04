@@ -9,7 +9,7 @@
 // COMPONENTS
 import NavLink from "./components/NavLink.vue";
 import SnackBar from "./components/SnackBar";
-import Product from "./models/Product";
+
 export default {
   name: "App",
   components: {
@@ -18,7 +18,6 @@ export default {
   },
   created() {
     this.checkUserInfos();
-    this.getAllProducts();
   },
 
   methods: {
@@ -27,17 +26,7 @@ export default {
       if (user) {
         this.$store.commit("setInfos", {...user});
       }
-    },
-    getAllProducts() {
-      let products = JSON.parse(localStorage.getItem("products"));
-      console.log(products)
-      if (products != null) {
-        for (let p in products) {
-          let product = products[p]
-          this.$store.commit("createProduct", new Product(product.id, product.name, product.price, product.description));
-        }
-      }
-    },
+    }
   },
 };
 </script>
