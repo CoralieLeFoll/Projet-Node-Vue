@@ -97,7 +97,6 @@
         this.form.description = null
       },
       saveProduct () {
-        console.log(this.form)
           this.$store.dispatch('createProduct', this.form)
       },
       validateProduct () {

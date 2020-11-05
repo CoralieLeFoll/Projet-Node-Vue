@@ -2,12 +2,16 @@ import axios from 'axios'
 
 export default {
     state: {
-        products: []
+        products: [],
+        product: {}
     },
 
     mutations: {
         setProducts(state, products) {
             state.products = products
+        },
+        setProduct(state, product) {
+            state.product = product
         }
     },
 
@@ -40,7 +44,6 @@ export default {
             })
         },
         async createProduct({ dispatch }, product) {
-            console.log(product)
             await axios.post(`http://localhost:3000/products`, product)
             .then(function () {
                 dispatch('loadProducts')
@@ -48,12 +51,33 @@ export default {
             .catch(function (error) {
                 console.log(error);
             })
-        }
+        },
+        async getProduct({ commit }, id) {
+            await axios.get(`http://localhost:3000/products/${id}`)
+                .then(function (response) {
+                    commit('setProduct', response.data);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                })
+        },
+        async changeProduct({ dispatch }, { product, id } ) {
+            await axios.put(`http://localhost:3000/products/${id}`, product)
+            .then(function () {
+                dispatch('loadProducts')
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+        },
     },
 
     getters: {
         getProducts(state) {
             return state.products;
+        },
+        getProduct(state) {
+            return state.product;
         }
     }
 }
