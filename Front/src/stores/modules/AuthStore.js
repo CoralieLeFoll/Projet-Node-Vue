@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 export default {
     state: {
         logged: false,
@@ -13,6 +15,27 @@ export default {
             state.infos = {};
             state.logged = false;
         }
+    },
+
+    actions: {
+        async login({ commit }, customer) {
+            await axios.post('http://localhost:3000/customers/login', customer)
+                .then(function (response) {
+                    commit('setInfos', response.data);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                })
+        },
+        async signin({ commit }, customer) {
+            await axios.post('http://localhost:3000/customers', customer)
+                .then(function (response) {
+                    commit('setInfos', response.data);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                })
+        },
     },
 
     getters: {

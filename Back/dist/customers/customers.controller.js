@@ -16,6 +16,7 @@ exports.CustomersController = void 0;
 const common_1 = require("@nestjs/common");
 const customers_service_1 = require("./customers.service");
 const schema_customer_1 = require("./Schemas/schema.customer");
+const schema_login_1 = require("./Schemas/schema.login");
 let CustomersController = class CustomersController {
     constructor(customersService) {
         this.customersService = customersService;
@@ -37,6 +38,9 @@ let CustomersController = class CustomersController {
     }
     removeAll() {
         return this.customersService.removeAll();
+    }
+    login(login) {
+        return this.customersService.login(login);
     }
 };
 __decorate([
@@ -79,6 +83,13 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], CustomersController.prototype, "removeAll", null);
+__decorate([
+    common_1.Post('login'),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [schema_login_1.LoginSchema]),
+    __metadata("design:returntype", void 0)
+], CustomersController.prototype, "login", null);
 CustomersController = __decorate([
     common_1.Controller('customers'),
     __metadata("design:paramtypes", [customers_service_1.CustomersService])

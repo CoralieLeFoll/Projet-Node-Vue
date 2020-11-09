@@ -7,8 +7,8 @@
 <div class="md-layout md-gutter">
             <div class="md-layout-item md-small-size-100">
               <md-field>
-                <label for="username">Username</label>
-                <md-input name="username" id="username" autocomplete="family-name" v-model="input.username" />
+                <label for="mail">Mail</label>
+                <md-input name="mail" id="mail" autocomplete="family-name" v-model="input.mail" />
               </md-field>
             </div>
              <div class="md-layout-item md-small-size-100">
@@ -34,23 +34,31 @@ export default {
   data() {
     return {
       input: {
-        username: "",
+        mail: "",
         password: "",
       },
     };
   },
 
   methods: {
-        login() {
-          if(this.input.username !== "" && this.input.password !== "") {
-            this.$store.commit("setInfos", {
-              username: this.input.username,
-              password: this.input.password,});
-            localStorage.setItem("user", JSON.stringify({ ...this.$store.getters.getUserInfos }));
-            this.$router.push("/");
-          }
+        async login() {
+          var error = null
+          if(this.input.mail !== "" && this.input.password !== "") {
+            await this.$store.dispatch("login", this.input);
+            var customer = this.$store.getters.getUserInfos
+            if(customer.length != 0) {
+              localStorage.setItem("user", JSON.stringify({ ...customer }));
+              this.$router.push("/");
+            }
             else {
-              this.$store.commit("showErrorSnackbar", "Veuilez remplir un user et un mdp")
+              error = "Mail / Mot de passe incorrects"
+            }
+          }
+          else {
+            error = "Veuilez remplir un mail et un mot de passe"
+          }
+            if(error != null) {
+              this.$store.commit("showErrorSnackbar", error)
             }
     }
   }

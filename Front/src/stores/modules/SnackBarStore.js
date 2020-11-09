@@ -14,7 +14,6 @@ export default {
             state.icon = "info";
         },
         showErrorSnackbar(state, message){
-            console.log('test')
             state.theme = "error-theme";
             state.message = message;
             state.show = true;

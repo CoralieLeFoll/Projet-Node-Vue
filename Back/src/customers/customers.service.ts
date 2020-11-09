@@ -3,6 +3,7 @@ import { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
 import { Customer } from './Schemas/Customer';
 import { CustomerSchema } from './Schemas/schema.customer';
+import { LoginSchema } from './Schemas/schema.login';
 
 @Injectable()
 export class CustomersService {
@@ -34,5 +35,9 @@ export class CustomersService {
       customers.forEach(async customer => {
         await this.customerModel.findByIdAndDelete(customer._id);
       });
+    }
+
+    async login(customer: LoginSchema): Promise<Customer> {
+      return this.customerModel.findOne({ mail: customer.mail, password: customer.password });
     }
 }

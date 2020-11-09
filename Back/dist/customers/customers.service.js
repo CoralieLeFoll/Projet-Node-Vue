@@ -65,6 +65,11 @@ let CustomersService = class CustomersService {
             }));
         });
     }
+    login(customer) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.customerModel.findOne({ mail: customer.mail, password: customer.password });
+        });
+    }
 };
 CustomersService = __decorate([
     common_1.Injectable(),

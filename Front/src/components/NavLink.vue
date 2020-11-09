@@ -10,11 +10,12 @@
           </div>
 
           <div class="md-toolbar-section-end">
-            <md-button v-if="!isLogged" class="md-accent" :to="`/login`">Log In</md-button>
+            <md-button v-if="!isLogged" class="md-accent" :to="`/login`">Connexion</md-button>
+            <md-button v-if="!isLogged" class="md-accent" :to="`/signin`">Inscription</md-button>
             <md-menu md-align-trigger v-else>
               <md-button md-menu-trigger @click="logout"> 
                 {{ $store.getters.getUsername }}
-                Log out
+                Deconnexion
               </md-button>
             </md-menu>
           </div>

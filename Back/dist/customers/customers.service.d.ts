@@ -1,6 +1,7 @@
 import { Model } from 'mongoose';
 import { Customer } from './Schemas/Customer';
 import { CustomerSchema } from './Schemas/schema.customer';
+import { LoginSchema } from './Schemas/schema.login';
 export declare class CustomersService {
     private customerModel;
     constructor(customerModel: Model<Customer>);
@@ -10,4 +11,5 @@ export declare class CustomersService {
     put(id: string, customer: CustomerSchema): Promise<Customer>;
     remove(id: string): Promise<Customer>;
     removeAll(): Promise<void>;
+    login(customer: LoginSchema): Promise<Customer>;
 }

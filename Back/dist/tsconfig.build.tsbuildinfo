@@ -1311,14 +1311,19 @@
         "signature": "d5e845c9a5237c228be0d5234c8f384ebe004fe1bccced4eb4942fe1f29ab5f6",
         "affectsGlobalScope": false
       },
+      "../src/customers/schemas/schema.login.ts": {
+        "version": "93c9bf475bd847bb168d5566c801636e8d9b0d25a7db329beb6857f7c784fdbb",
+        "signature": "e1b37f5e3a152d56c876a0acd339dd6d72e560cb479b791a3ace48717721df45",
+        "affectsGlobalScope": false
+      },
       "../src/customers/customers.service.ts": {
-        "version": "6fa3c4569c52b701ea5a014328eaf9e1177ec85be24fbf6f1e96df11070d581a",
-        "signature": "ef48108cf2f8f5087be3640faa87dbc00155342577f23a9c6ce916facc2ecf7d",
+        "version": "570ad6056643e3f31b842c690933d1e29ca3a28d692061e56b87a2265a0b2e55",
+        "signature": "0a9321a403c0f45bba1116b2ba697fa5491bf3383f8a70761b1e60d53e825f26",
         "affectsGlobalScope": false
       },
       "../src/customers/customers.controller.ts": {
-        "version": "c0c730569d5f7e0559e725caf01909afeb491dcf390d660a423cb53abb0c18a3",
-        "signature": "0620e6bc6757964a7db9fb6b9b96816f973c90fe8643a8aaccae9d98f29e2ae3",
+        "version": "7f16683484e18bb13c70f7d001f309b5ba53efc301a88da60ce6f93ac56eecdf",
+        "signature": "64baa91c3b787c9a96a3fe44da7af1b80e61c6916b45484e111c4212b45fbac5",
         "affectsGlobalScope": false
       },
       "../src/customers/customers.module.ts": {
@@ -3389,7 +3394,8 @@
       "../src/customers/customers.controller.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../src/customers/customers.service.ts",
-        "../src/customers/schemas/schema.customer.ts"
+        "../src/customers/schemas/schema.customer.ts",
+        "../src/customers/schemas/schema.login.ts"
       ],
       "../src/customers/customers.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
@@ -3402,7 +3408,8 @@
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/mongoose/index.d.ts",
         "../src/customers/schemas/customer.ts",
-        "../src/customers/schemas/schema.customer.ts"
+        "../src/customers/schemas/schema.customer.ts",
+        "../src/customers/schemas/schema.login.ts"
       ],
       "../src/customers/schemas/customer.ts": [
         "../node_modules/@nestjs/mongoose/index.d.ts"
@@ -4750,11 +4757,13 @@
       "../src/customers/customers.controller.ts": [
         "../src/customers/customers.service.ts",
         "../src/customers/schemas/customer.ts",
-        "../src/customers/schemas/schema.customer.ts"
+        "../src/customers/schemas/schema.customer.ts",
+        "../src/customers/schemas/schema.login.ts"
       ],
       "../src/customers/customers.service.ts": [
         "../src/customers/schemas/customer.ts",
-        "../src/customers/schemas/schema.customer.ts"
+        "../src/customers/schemas/schema.customer.ts",
+        "../src/customers/schemas/schema.login.ts"
       ],
       "../src/products/products.controller.ts": [
         "../src/products/products.service.ts",

@@ -1,6 +1,7 @@
 import { Controller, Get, Post, Body, Put, Param, Delete } from '@nestjs/common';
 import { CustomersService } from './customers.service';
 import { CustomerSchema } from './Schemas/schema.customer';
+import { LoginSchema } from './Schemas/schema.login';
 
 @Controller('customers')
 export class CustomersController {
@@ -34,5 +35,10 @@ export class CustomersController {
   @Delete()
   removeAll() {
     return this.customersService.removeAll();
+  }
+
+  @Post('login')
+  login(@Body() login: LoginSchema) {
+    return this.customersService.login(login)
   }
 }
