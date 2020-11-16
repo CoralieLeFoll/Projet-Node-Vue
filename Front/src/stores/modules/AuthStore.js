@@ -1,4 +1,7 @@
 import axios from 'axios'
+import crypto from '../../services/crypto'
+
+var cryptoJS = new crypto()
 
 export default {
     state: {
@@ -19,6 +22,7 @@ export default {
 
     actions: {
         async login({ commit }, customer) {
+            customer.password = cryptoJS.aesEncrypt(customer.password)
             await axios.post('http://localhost:3000/customers/login', customer)
                 .then(function (response) {
                     commit('setInfos', response.data);
@@ -28,6 +32,7 @@ export default {
                 })
         },
         async signin({ commit }, customer) {
+            customer.password = cryptoJS.aesEncrypt(customer.password)
             await axios.post('http://localhost:3000/customers', customer)
                 .then(function (response) {
                     commit('setInfos', response.data);
@@ -41,10 +46,6 @@ export default {
     getters: {
         isLogged(state) {
             return state.logged;
-        },
-
-        getUsername(state) {
-            return state.infos.username;
         },
 
         getUserInfos(state) {

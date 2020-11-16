@@ -22,12 +22,22 @@ const routes = [
   {
     path: '/login',
     name: 'Login',
-    component: Login
+    component: Login,
+    beforeEnter: (to, from, next) => {
+      let user = JSON.parse(localStorage.getItem("user"));
+      if (user) next({ name: 'Home' })
+      else next()
+    }
   },
   {
     path: '/signin',
     name: 'Signin',
-    component: Signin
+    component: Signin,
+    beforeEnter: (to, from, next) => {
+      let user = JSON.parse(localStorage.getItem("user"));
+      if (user) next({ name: 'Home' })
+      else next()
+    }
   },
   {
     path: '/products',
@@ -41,5 +51,10 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
+// router.beforeEach((to, from, next) => {
+//   if (to.name !== 'Login' && !Store.getters.getUserInfos) next({ name: 'Login' })
+//   else next()
+// })
 
 export default router
