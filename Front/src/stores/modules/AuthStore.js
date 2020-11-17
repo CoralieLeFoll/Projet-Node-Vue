@@ -22,20 +22,36 @@ export default {
 
     actions: {
         async login({ commit }, customer) {
-            customer.password = cryptoJS.aesEncrypt(customer.password)
+            customer.password = await cryptoJS.aesEncrypt(customer.password)
             await axios.post('http://localhost:3000/customers/login', customer)
                 .then(function (response) {
-                    commit('setInfos', response.data);
+                    if(response.data.length != 0) {
+                        commit('setInfos', response.data);
+                    }
                 })
                 .catch(function (error) {
                     console.log(error);
                 })
         },
         async signin({ commit }, customer) {
-            customer.password = cryptoJS.aesEncrypt(customer.password)
+            customer.password = await cryptoJS.aesEncrypt(customer.password)
             await axios.post('http://localhost:3000/customers', customer)
                 .then(function (response) {
-                    commit('setInfos', response.data);
+                    if(response.data.length != 0) {
+                        commit('setInfos', response.data);
+                    }
+                })
+                .catch(function (error) {
+                    console.log(error);
+                })
+        },
+        async modifyAccount({ commit }, customer) {
+            customer.password = await cryptoJS.aesEncrypt(customer.password)
+            await axios.put(`http://localhost:3000/customers/${customer._id}`, customer)
+                .then(function (response) {
+                    if(response.data.length != 0) {
+                        commit('setInfos', response.data);
+                    }
                 })
                 .catch(function (error) {
                     console.log(error);

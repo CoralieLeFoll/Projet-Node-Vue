@@ -2,8 +2,10 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import About from '../views/About.vue'
-import Login from '../views/Login.vue'
-import Signin from '../views/Signin.vue'
+import PageNotFound from '../views/PageNotFound.vue'
+import Login from '../components/Customers/Login.vue'
+import Signin from '../components/Customers/Signin.vue'
+import Account from '../components/Customers/Account.vue'
 import Products from '../components/Products/Products.vue'
 
 Vue.use(VueRouter)
@@ -37,12 +39,26 @@ const routes = [
       let user = JSON.parse(localStorage.getItem("user"));
       if (user) next({ name: 'Home' })
       else next()
+    },
+    
+  },
+  {
+    path: '/account',
+    name: 'Account',
+    component: Account,
+    beforeEnter: (to, from, next) => {
+      let user = JSON.parse(localStorage.getItem("user"));
+      if (!user) next({ name: 'Home' })
+      else next()
     }
   },
   {
     path: '/products',
     name: 'Products',
     component: Products
+  },
+  { path: "*", 
+    component: PageNotFound 
   }
 ]
 

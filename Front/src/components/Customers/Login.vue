@@ -8,13 +8,13 @@
             <div class="md-layout-item md-small-size-100">
               <md-field>
                 <label for="mail">Mail</label>
-                <md-input name="mail" id="mail" autocomplete="family-name" v-model="input.mail" />
+                <md-input name="mail" id="mail" v-model="input.mail" />
               </md-field>
             </div>
              <div class="md-layout-item md-small-size-100">
               <md-field>
                 <label for="password">Password</label>
-                <md-input name="password" id="last-name" autocomplete="family-name" v-model="input.password" type="password" />
+                <md-input name="password" id="password" v-model="input.password" type="password" />
               </md-field>
             </div>
 </div>
@@ -44,13 +44,15 @@ export default {
         async login() {
           var error = null
           if(this.input.mail !== "" && this.input.password !== "") {
-            await this.$store.dispatch("login", this.input);
-            var customer = this.$store.getters.getUserInfos
-            if(customer.length != 0) {
-              localStorage.setItem("user", JSON.stringify({ ...customer }));
+            const user = Object.assign({}, this.input);
+            await this.$store.dispatch("login", user);
+            var customer = await this.$store.getters.getUserInfos
+            if(this.$store.getters.isLogged) {
+              await localStorage.setItem("user", JSON.stringify({ ...customer }));
               this.$router.push("/");
             }
             else {
+              console.log(this.input.password)
               error = "Mail / Mot de passe incorrects"
             }
           }

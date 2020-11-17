@@ -13,8 +13,10 @@
             <md-button v-if="!isLogged" class="md-accent" :to="`/login`">Connexion</md-button>
             <md-button v-if="!isLogged" class="md-accent" :to="`/signin`">Inscription</md-button>
             <md-menu md-align-trigger v-else>
+              <md-button md-menu-trigger @click="$router.push('/account')"> 
+                Compte
+              </md-button>
               <md-button md-menu-trigger @click="logout"> 
-                {{ $store.getters.getUsername }}
                 Deconnexion
               </md-button>
             </md-menu>
