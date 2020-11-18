@@ -1331,8 +1331,33 @@
         "signature": "0cdfafccdff85bc48af6a7437f196f1c8a36131a678cd5972736eb617686974b",
         "affectsGlobalScope": false
       },
+      "../src/baskets/schemas/basket.ts": {
+        "version": "2b7d12172ef27fe07b3fbe2399364f2d9de96fdac64a7e0d9779b5ab6a99fd75",
+        "signature": "d03a41fb63975cc00a5027fda3a671ba795442dbeb758fac38bf664b4c792db6",
+        "affectsGlobalScope": false
+      },
+      "../src/baskets/schemas/schema.basket.ts": {
+        "version": "08ca1cff4ef951b36fa256abb77669b8fd0c03162ad54b6c90227e14712ab236",
+        "signature": "1a4deabd232357a106e3097bba3e4c64e760852d12ec67eddabd7c3962c657a5",
+        "affectsGlobalScope": false
+      },
+      "../src/baskets/baskets.service.ts": {
+        "version": "fd4250bd08fadba4ff9c14f7f21a6045591866906532ca13a6d24c8f7a8b891c",
+        "signature": "474617d6a1ce20342f75dc7b4c040145b6730dfab627159ad50a8f6de019bd0d",
+        "affectsGlobalScope": false
+      },
+      "../src/baskets/baskets.controller.ts": {
+        "version": "8dcde1fb7a098124be7b1e69c69d6e0ac46b61582fc18b471d5687b2174d7b4e",
+        "signature": "0990d411ed759e3ecac6d8c1436ec820440dda8ec4e7c673679da39dee7085da",
+        "affectsGlobalScope": false
+      },
+      "../src/baskets/baskets.module.ts": {
+        "version": "4759a94661e5a044ccd48e68bc8d148d30edfebe02f861c1d8d3488b1168dc1c",
+        "signature": "58371854a671da4d435e5839952d522a7f57316e36b8d9aeb8fb8143360429c9",
+        "affectsGlobalScope": false
+      },
       "../src/app.module.ts": {
-        "version": "c8ba70806f3fd759ea5d1fc89182d80b2cfede1024d219e5527dd9e83a96fb8b",
+        "version": "608fd8df6f923b88f5bd2c7b725bef8812dba1ae860ed44710b60d3d959e23f9",
         "signature": "9fc7f7b6ad854404973b8cba8e6d883f758237991968e9a3965d716d46f1da88",
         "affectsGlobalScope": false
       },
@@ -3385,11 +3410,33 @@
         "../node_modules/@nestjs/mongoose/index.d.ts",
         "../src/app.controller.ts",
         "../src/app.service.ts",
+        "../src/baskets/baskets.module.ts",
         "../src/customers/customers.module.ts",
         "../src/products/products.module.ts"
       ],
       "../src/app.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts"
+      ],
+      "../src/baskets/baskets.controller.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../src/baskets/baskets.service.ts",
+        "../src/baskets/schemas/schema.basket.ts"
+      ],
+      "../src/baskets/baskets.module.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/mongoose/index.d.ts",
+        "../src/baskets/baskets.controller.ts",
+        "../src/baskets/baskets.service.ts",
+        "../src/baskets/schemas/basket.ts"
+      ],
+      "../src/baskets/baskets.service.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/mongoose/index.d.ts",
+        "../src/baskets/schemas/basket.ts",
+        "../src/baskets/schemas/schema.basket.ts"
+      ],
+      "../src/baskets/schemas/basket.ts": [
+        "../node_modules/@nestjs/mongoose/index.d.ts"
       ],
       "../src/customers/customers.controller.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
@@ -4753,6 +4800,15 @@
       ],
       "../src/app.controller.ts": [
         "../src/app.service.ts"
+      ],
+      "../src/baskets/baskets.controller.ts": [
+        "../src/baskets/baskets.service.ts",
+        "../src/baskets/schemas/basket.ts",
+        "../src/baskets/schemas/schema.basket.ts"
+      ],
+      "../src/baskets/baskets.service.ts": [
+        "../src/baskets/schemas/basket.ts",
+        "../src/baskets/schemas/schema.basket.ts"
       ],
       "../src/customers/customers.controller.ts": [
         "../src/customers/customers.service.ts",
