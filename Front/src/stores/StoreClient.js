@@ -5,6 +5,7 @@ import Vuex from 'vuex'
 import authStore from '@/stores/modules/AuthStore.js'
 import snackBarStore from '@/stores/modules/SnackBarStore.js'
 import productStore from '@/stores/modules/ProductStore.js'
+import basketStore from '@/stores/modules/BasketStore.js'
 
 Vue.use(Vuex)
 
@@ -13,6 +14,7 @@ export default new Vuex.Store({
     modules: {
         authStore: authStore,
         snackBarStore: snackBarStore,
-        productStore: productStore
+        productStore: productStore,
+        basketStore: basketStore
     },
 });

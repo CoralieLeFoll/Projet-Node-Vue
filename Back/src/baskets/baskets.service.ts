@@ -14,23 +14,25 @@ export class BasketsService {
     }
 
     async findOne(id: string): Promise<Basket> {
-      return this.basketModel.findById(id);
+      return this.basketModel.findOne({ customerId: id }).exec();
     }
 
-    async add(basketId: string, productId: string): Promise<Basket> {
+    async add(customerId: string, productId: string): Promise<Basket> {
       var basket = new BasketSchema()
-      await this.basketModel.findById(basketId).then(
+      console.log(customerId)
+      await this.basketModel.findOne({ customerId: customerId }).exec().then(
         async basket => {
+          console.log(basket)
           basket.productIds.push(productId);
-          basket = await this.basketModel.findByIdAndUpdate(basketId, basket)
+          basket = await this.basketModel.findByIdAndUpdate(basket._id, basket)
         }
       );
       return basket
     }
 
-    async delete(basketId: string, productId: string): Promise<Basket> {
+    async delete(customerId: string, productId: string): Promise<Basket> {
       var basket = new BasketSchema()
-      await this.basketModel.findById(basketId).then(
+      await this.basketModel.findOne({ customerId: customerId }).then(
         async basket => {
           var position = 0
           basket.productIds.forEach(products => {
@@ -40,7 +42,7 @@ export class BasketsService {
             }
             position++
           });
-          basket = await this.basketModel.findByIdAndUpdate(basketId, basket)
+          basket = await this.basketModel.findByIdAndUpdate(basket._id, basket)
         }
       );
       return basket
@@ -48,10 +50,10 @@ export class BasketsService {
 
     async remove(id: string): Promise<Basket> {
       var basket = new BasketSchema()
-      await this.basketModel.findById(id).then(
+      await this.basketModel.findOne({ customerId: id }).then(
         async basket => {
           basket.productIds = []
-          basket = await this.basketModel.findByIdAndUpdate(id, basket)
+          basket = await this.basketModel.findByIdAndUpdate(basket._id, basket)
         }
       );
       return basket

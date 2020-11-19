@@ -16,6 +16,9 @@
               <md-button md-menu-trigger @click="$router.push('/account')"> 
                 Compte
               </md-button>
+              <md-button md-menu-trigger @click="$router.push('/basket')"> 
+                Panier
+              </md-button>
               <md-button md-menu-trigger @click="logout"> 
                 Deconnexion
               </md-button>

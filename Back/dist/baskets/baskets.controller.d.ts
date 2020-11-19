@@ -6,11 +6,11 @@ export declare class BasketsController {
     create(basket: BasketSchema): Promise<import("./Schemas/Basket").Basket>;
     findOne(id: string): Promise<import("./Schemas/Basket").Basket>;
     add(basket: {
-        basketId: any;
+        customerId: any;
         productId: any;
     }): Promise<import("./Schemas/Basket").Basket>;
     delete(basket: {
-        basketId: any;
+        customerId: any;
         productId: any;
     }): Promise<import("./Schemas/Basket").Basket>;
     remove(id: string): Promise<import("./Schemas/Basket").Basket>;

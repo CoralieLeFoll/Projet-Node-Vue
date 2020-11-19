@@ -15,6 +15,7 @@
         <md-card-actions>
           <md-button @click="deleteProduct(product._id)">Supprimer</md-button>
           <md-button @click="changeProduct(product._id)">Modifier</md-button>
+          <md-button @click="addProduct(product._id)">Ajouter au panier</md-button>
         </md-card-actions>
       </md-card>
     </div>
@@ -62,10 +63,14 @@ export default {
         deleteAllProducts () {
           this.$store.dispatch('deleteAllProducts')
       },
-        changeProduct (id) {
-          this.changedProductId = id
-          this.change = true
-        }
+      changeProduct (id) {
+        this.changedProductId = id
+        this.change = true
+      },
+      async addProduct (id) {
+        var customer = await this.$store.getters.getUserInfos
+        this.$store.dispatch('addProductToBasket', { customerId: customer._id, productId: id })
+      }
     }
 }
 </script>

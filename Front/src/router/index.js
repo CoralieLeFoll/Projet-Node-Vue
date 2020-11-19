@@ -7,6 +7,7 @@ import Login from '../components/Customers/Login.vue'
 import Signin from '../components/Customers/Signin.vue'
 import Account from '../components/Customers/Account.vue'
 import Products from '../components/Products/Products.vue'
+import Basket from '../components/Products/Basket.vue'
 
 Vue.use(VueRouter)
 
@@ -59,6 +60,16 @@ const routes = [
   },
   { path: "*", 
     component: PageNotFound 
+  },
+  {
+    path: '/basket',
+    name: 'Basket',
+    component: Basket,
+    beforeEnter: (to, from, next) => {
+      let user = JSON.parse(localStorage.getItem("user"));
+      if (!user) next({ name: 'Home' })
+      else next()
+    }
   }
 ]
 

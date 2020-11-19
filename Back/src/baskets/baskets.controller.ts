@@ -17,13 +17,13 @@ export class BasketsController {
     }
   
     @Post('add')
-    add(@Body() basket : { basketId, productId }) {
-      return this.basketsService.add(basket.basketId, basket.productId);
+    add(@Body() basket : { customerId, productId }) {
+      return this.basketsService.add(basket.customerId, basket.productId);
     }
 
     @Post('delete')
-    delete(@Body() basket : { basketId, productId }) {
-      return this.basketsService.delete(basket.basketId, basket.productId);
+    delete(@Body() basket : { customerId, productId }) {
+      return this.basketsService.delete(basket.customerId, basket.productId);
     }
   
     @Delete(':id')

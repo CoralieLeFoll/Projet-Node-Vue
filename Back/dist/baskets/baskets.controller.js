@@ -27,10 +27,10 @@ let BasketsController = class BasketsController {
         return this.basketsService.findOne(id);
     }
     add(basket) {
-        return this.basketsService.add(basket.basketId, basket.productId);
+        return this.basketsService.add(basket.customerId, basket.productId);
     }
     delete(basket) {
-        return this.basketsService.delete(basket.basketId, basket.productId);
+        return this.basketsService.delete(basket.customerId, basket.productId);
     }
     remove(id) {
         return this.basketsService.remove(id);

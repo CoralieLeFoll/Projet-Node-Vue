@@ -1342,13 +1342,13 @@
         "affectsGlobalScope": false
       },
       "../src/baskets/baskets.service.ts": {
-        "version": "fd4250bd08fadba4ff9c14f7f21a6045591866906532ca13a6d24c8f7a8b891c",
-        "signature": "474617d6a1ce20342f75dc7b4c040145b6730dfab627159ad50a8f6de019bd0d",
+        "version": "7edbb7e50726b3ce1eebef4215ec6f5fbc9d30cc14b596b9cdba0fc4b52cb0db",
+        "signature": "ae6bc35a7ff806193a4ef9275e2acdbda30b58d48a087e47acc7228f17778fbd",
         "affectsGlobalScope": false
       },
       "../src/baskets/baskets.controller.ts": {
-        "version": "8dcde1fb7a098124be7b1e69c69d6e0ac46b61582fc18b471d5687b2174d7b4e",
-        "signature": "0990d411ed759e3ecac6d8c1436ec820440dda8ec4e7c673679da39dee7085da",
+        "version": "7aea04015a5f1d074b46cffafc5f757c61f4fec6734fa5e3ead8bd7f3722646f",
+        "signature": "fb80427708707b36bc096226b1c3aa838c057543087a2965d8d81050569c6a90",
         "affectsGlobalScope": false
       },
       "../src/baskets/baskets.module.ts": {
