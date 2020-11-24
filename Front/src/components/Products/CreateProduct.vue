@@ -3,26 +3,26 @@
     <form novalidate class="md-layout" @submit.prevent="validateProduct">
       <md-card class="md-layout-item md-size-50 md-small-size-100">
         <md-card-header>
-          <div class="md-title">Create Product</div>
+          <div class="md-title">Ajouter un produit</div>
         </md-card-header>
 
         <md-card-content>
           <div class="md-layout md-gutter">
             <div class="md-layout-item md-small-size-100">
               <md-field :class="getValidationClass('name')">
-                <label for="name">Name</label>
+                <label for="name">Nom du produit</label>
                 <md-input name="name" id="name" autocomplete="name" v-model="form.name" />
-                <span class="md-error" v-if="!$v.form.name.required">The name is required</span>
-                <span class="md-error" v-else-if="!$v.form.name.minlength">Invalid name</span>
+                <span class="md-error" v-if="!$v.form.name.required">Le nom est requis.</span>
+                <span class="md-error" v-else-if="!$v.form.name.minlength">Nom invalide.</span>
               </md-field>
             </div>
 
             <div class="md-layout-item md-small-size-100">
               <md-field :class="getValidationClass('price')">
-                <label for="price">Price</label>
+                <label for="price">Prix</label>
                 <md-input name="price" id="price" autocomplete="price" v-model="form.price" />
-                <span class="md-error" v-if="!$v.form.price.required">The price is required</span>
-                <span class="md-error" v-else-if="!$v.form.price.minlength">Invalid price</span>
+                <span class="md-error" v-if="!$v.form.price.required">Le prix est requis.</span>
+                <span class="md-error" v-else-if="!$v.form.price.minlength">Prix invalide.</span>
               </md-field>
             </div>
           </div>
@@ -32,15 +32,15 @@
               <md-field :class="getValidationClass('description')">
                 <label for="description">Description</label>
                 <md-input name="description" id="description" autocomplete="description" v-model="form.description" />
-                <span class="md-error" v-if="!$v.form.description.required">The description is required</span>
-                <span class="md-error" v-else-if="!$v.form.description.minlength">Invalid description</span>
+                <span class="md-error" v-if="!$v.form.description.required">La description est requise.</span>
+                <span class="md-error" v-else-if="!$v.form.description.minlength">Description invalide.</span>
               </md-field>
             </div>
           </div>
         </md-card-content>
 
         <md-card-actions>
-          <md-button type="submit" class="md-primary">Create product</md-button>
+          <md-button type="submit" class="md-primary">Sauvegarder</md-button>
         </md-card-actions>
       </md-card>
     </form>

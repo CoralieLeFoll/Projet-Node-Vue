@@ -5,22 +5,28 @@
       <md-app-toolbar class="md-primary">
         <div class="md-toolbar-row">
           <div class="md-toolbar-section-start">
-            <md-button class="md-title" :to="`/`">Store</md-button>
-            <md-button class="md-accent" :to="`/products`">Produits</md-button>
+            <md-button class="md-title" :to="`/`">
+              <i class="material-icons">home</i>Store
+            </md-button>
+            <md-button class="md-accent" :to="`/products`">
+              <i class="material-icons">store</i>Produits
+            </md-button>
           </div>
 
           <div class="md-toolbar-section-end">
-            <md-button v-if="!isLogged" class="md-accent" :to="`/login`">Connexion</md-button>
-            <md-button v-if="!isLogged" class="md-accent" :to="`/signin`">Inscription</md-button>
+            <md-button v-if="!isLogged" class="md-accent" :to="`/login`">
+              <i class="material-icons">login</i>Connexion</md-button>
+            <md-button v-if="!isLogged" class="md-accent" :to="`/signin`">
+              <i class="material-icons">perm_contact_calendar</i>Inscription</md-button>
             <md-menu md-align-trigger v-else>
               <md-button md-menu-trigger @click="$router.push('/account')"> 
-                Compte
+                <i class="material-icons">person</i>Compte
               </md-button>
               <md-button md-menu-trigger @click="$router.push('/basket')"> 
-                Panier
+                <i class="material-icons">shopping_basket</i>Panier
               </md-button>
               <md-button md-menu-trigger @click="logout"> 
-                Deconnexion
+                <i class="material-icons">directions_run</i>Deconnexion
               </md-button>
             </md-menu>
           </div>
@@ -28,7 +34,9 @@
       </md-app-toolbar>
 
       <md-app-content>
+        <div class="body">
           <router-view />
+        </div>
 <footer class="footer">
   <div class="footer__addr">
     <h1 class="footer__logo">Store</h1>
@@ -92,27 +100,13 @@
   </div>
 </template>
 
-<style scoped>
-.md-app {
-   height: 100vh;
-}
-*, *:before, *:after {
-  box-sizing: border-box;
-}
-
+<style>
 html {
   font-size: 100%;
 }
 
-body {
-  font-family: acumin-pro, system-ui, sans-serif;
-  margin: 0;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  font-size: 14px;
-  background-color: #f4f4f4;
-  align-items: start;
-  min-height: 100vh;
+.body {
+  padding-bottom: 20%;
 }
 
 .footer {
@@ -123,6 +117,9 @@ body {
   color: #2f2f2f;
   background-color: #fff;
   border-top: 1px solid #e5e5e5;
+  position: fixed;
+  bottom: 0; 
+  width: 100%;
 }
 
 .footer > * {
@@ -198,38 +195,17 @@ body {
   color: #999;
 }
 
-.nav__ul--extra {
-  column-count: 2;
-  column-gap: 1.25em;
-}
-
 .legal {
-  display: flex;
-  flex-wrap: wrap;
-}
-  
-.legal__links {
-  display: flex;
-  align-items: center;
-}
-
-.heart {
-  color: #2f2f2f;
-}
-
-@media screen and (min-width: 24.375em) {
-  .legal .legal__links {
-    margin-left: auto;
-  }
+   margin: 0;
+   position: absolute;
+   left: 50%;
+   top: 100%;
+   transform: translate(-50%, -50%);
 }
 
 @media screen and (min-width: 40.375em) {
   .footer__nav > * {
     flex: 1;
-  }
-  
-  .nav__item--extra {
-    flex-grow: 2;
   }
   
   .footer__addr {
