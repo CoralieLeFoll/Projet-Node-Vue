@@ -11,31 +11,39 @@
                         <md-input name="name" id="name" v-model="user.name" disabled />
                     </md-field>
                 </div>
+            </div>
+            <div class="md-layout md-gutter">
                 <div class="md-layout-item md-small-size-100">
                     <md-field>
                         <label for="surname">Nom</label>
                         <md-input name="surname" id="surname" v-model="user.surname" disabled />
                     </md-field>
                 </div>
+            </div>
+            <div class="md-layout md-gutter">
                 <div class="md-layout-item md-small-size-100">
                     <md-field>
                         <label for="birthdate">Date de naissance</label>
                         <md-input name="birthdate" id="birthdate" v-model="user.birthdate" disabled />
                     </md-field>
                 </div>
+            </div>
+            <div class="md-layout md-gutter">
                 <div class="md-layout-item md-small-size-100">
                     <md-field>
                         <label for="mail">Mail</label>
                         <md-input name="mail" id="mail" v-model="user.mail" disabled />
                     </md-field>
                  </div>
+            </div>
+            <div class="md-layout md-gutter">
                 <div class="md-layout-item md-small-size-100">
                     <md-field>
                         <label for="password">Mot de passe</label>
                         <md-input name="password" id="password" v-model="user.password" type="password" placeholder="Mot de passe"/>
                     </md-field>
                 </div>
-</div>
+            </div>
         </md-card-content>
 
                 <md-card-actions>

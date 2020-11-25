@@ -2,30 +2,30 @@
     <div class="page-container">
     <!-- <md-app md-waterfall md-mode="fixed"> -->
     <md-app>
-      <md-app-toolbar class="md-primary">
+      <md-app-toolbar class="md-nav">
         <div class="md-toolbar-row">
           <div class="md-toolbar-section-start">
-            <md-button class="md-title" :to="`/`">
+            <md-button class="md-title" md-menu-trigger :to="`/`">
               <i class="material-icons">home</i>Store
             </md-button>
-            <md-button class="md-accent" :to="`/products`">
+            <md-button md-menu-trigger :to="`/products`">
               <i class="material-icons">store</i>Produits
             </md-button>
           </div>
 
           <div class="md-toolbar-section-end">
-            <md-button v-if="!isLogged" class="md-accent" :to="`/login`">
+            <md-button v-if="!isLogged" md-menu-trigger :to="`/login`">
               <i class="material-icons">login</i>Connexion</md-button>
-            <md-button v-if="!isLogged" class="md-accent" :to="`/signin`">
+            <md-button v-if="!isLogged" md-menu-trigger :to="`/signin`" >
               <i class="material-icons">perm_contact_calendar</i>Inscription</md-button>
             <md-menu md-align-trigger v-else>
-              <md-button md-menu-trigger @click="$router.push('/account')"> 
+              <md-button md-menu-trigger :to="`/account`"> 
                 <i class="material-icons">person</i>Compte
               </md-button>
-              <md-button md-menu-trigger @click="$router.push('/basket')"> 
+              <md-button md-menu-trigger :to="`/basket`"> 
                 <i class="material-icons">shopping_basket</i>Panier
               </md-button>
-              <md-button md-menu-trigger @click="logout"> 
+              <md-button md-menu-trigger class="md-nav" @click="logout"> 
                 <i class="material-icons">directions_run</i>Deconnexion
               </md-button>
             </md-menu>
@@ -107,6 +107,8 @@ html {
 
 .body {
   padding-bottom: 20%;
+  position: relative;
+  min-height: 100vh;
 }
 
 .footer {
@@ -117,7 +119,7 @@ html {
   color: #2f2f2f;
   background-color: #fff;
   border-top: 1px solid #e5e5e5;
-  position: fixed;
+  position: absolute;
   bottom: 0; 
   width: 100%;
 }

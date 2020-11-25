@@ -16,7 +16,9 @@
                 <span class="md-error" v-else-if="!$v.form.name.minlength">Nom invalide.</span>
               </md-field>
             </div>
+          </div>
 
+          <div class="md-layout md-gutter">
             <div class="md-layout-item md-small-size-100">
               <md-field :class="getValidationClass('price')">
                 <label for="price">Prix</label>

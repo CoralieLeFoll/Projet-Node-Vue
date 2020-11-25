@@ -55,4 +55,20 @@ export default {
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+
+.md-accent {
+    color: #ff5252;
+}
+
+.md-primary {
+    color: #448aff;
+}
+
+.md-nav {
+    color: rgb(0 37 84);
+}
+
+a, a:visited, a:hover, a:active {
+  color: inherit;
+}
 </style>

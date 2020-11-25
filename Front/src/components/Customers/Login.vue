@@ -1,23 +1,25 @@
 <template>
       <md-card class="md-layout-item">
         <md-card-header>
-          <div class="md-title">Login</div>
+          <div class="md-title">Connexion</div>
         </md-card-header>
         <md-card-content>
-<div class="md-layout md-gutter">
+          <div class="md-layout md-gutter">
             <div class="md-layout-item md-small-size-100">
               <md-field>
                 <label for="mail">Mail</label>
                 <md-input name="mail" id="mail" v-model="input.mail" />
               </md-field>
             </div>
+          </div>
+          <div class="md-layout md-gutter">
              <div class="md-layout-item md-small-size-100">
               <md-field>
                 <label for="password">Password</label>
                 <md-input name="password" id="password" v-model="input.password" type="password" />
               </md-field>
             </div>
-</div>
+          </div>
         </md-card-content>
 
                 <md-card-actions>

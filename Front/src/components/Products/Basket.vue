@@ -11,12 +11,14 @@
         </md-card-content>
 
         <md-card-actions>
-          <md-button @click="deleteProduct(product._id)">Supprimer</md-button>
+          <md-button class="md-fab md-accent" @click="deleteProduct(product._id)">
+            <md-icon>delete</md-icon>
+          </md-button>
         </md-card-actions>
       </md-card>
     </div>
     <h1 v-show="products == null || products.length < 1"> Il n'y a pas de produits </h1>
-    <button @click="deleteAllProducts"> Vider le panier </button>
+    <md-button class="md-raised md-accent" @click="deleteAllProducts"> Supprimer tout les produits </md-button>
   </div>
 </template>
 

@@ -16,10 +16,10 @@
           <md-button class="md-fab md-accent" @click="deleteProduct(product._id)">
             <md-icon>delete</md-icon>
           </md-button>
-          <md-button class="md-fab md-plain" @click="changeProduct(product._id)">
+          <md-button class="md-fab md-primary" @click="changeProduct(product._id)">
             <md-icon>edit</md-icon>
           </md-button>
-          <md-button class="md-fab md-primary" @click="addProduct(product._id)">
+          <md-button class="md-fab" @click="addProduct(product._id)">
             <md-icon>add</md-icon>
           </md-button>
         </md-card-actions>
