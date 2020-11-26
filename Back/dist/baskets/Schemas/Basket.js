@@ -21,7 +21,7 @@ __decorate([
 __decorate([
     mongoose_1.Prop(),
     __metadata("design:type", Array)
-], Basket.prototype, "productIds", void 0);
+], Basket.prototype, "products", void 0);
 Basket = __decorate([
     mongoose_1.Schema()
 ], Basket);

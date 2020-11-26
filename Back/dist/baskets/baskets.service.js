@@ -48,8 +48,17 @@ let BasketsService = class BasketsService {
             var basket = new schema_basket_1.BasketSchema();
             console.log(customerId);
             yield this.basketModel.findOne({ customerId: customerId }).exec().then((basket) => __awaiter(this, void 0, void 0, function* () {
-                console.log(basket);
-                basket.productIds.push(productId);
+                var newProduct = true;
+                basket.products.forEach((products) => __awaiter(this, void 0, void 0, function* () {
+                    if (products.productId == productId) {
+                        newProduct = false;
+                        products.quantity += 1;
+                        return;
+                    }
+                }));
+                if (newProduct) {
+                    basket.products.push({ productId, quantity: 1 });
+                }
                 basket = yield this.basketModel.findByIdAndUpdate(basket._id, basket);
             }));
             return basket;
@@ -60,9 +69,14 @@ let BasketsService = class BasketsService {
             var basket = new schema_basket_1.BasketSchema();
             yield this.basketModel.findOne({ customerId: customerId }).then((basket) => __awaiter(this, void 0, void 0, function* () {
                 var position = 0;
-                basket.productIds.forEach(products => {
-                    if (products == productId) {
-                        basket.productIds.splice(position, 1);
+                basket.products.forEach(products => {
+                    if (products.productId == productId) {
+                        if (products.quantity > 1) {
+                            products.quantity -= 1;
+                        }
+                        else {
+                            basket.products.splice(position, 1);
+                        }
                         return;
                     }
                     position++;
@@ -76,7 +90,8 @@ let BasketsService = class BasketsService {
         return __awaiter(this, void 0, void 0, function* () {
             var basket = new schema_basket_1.BasketSchema();
             yield this.basketModel.findOne({ customerId: id }).then((basket) => __awaiter(this, void 0, void 0, function* () {
-                basket.productIds = [];
+                console.log(basket);
+                basket.products = [];
                 basket = yield this.basketModel.findByIdAndUpdate(basket._id, basket);
             }));
             return basket;

@@ -1332,17 +1332,17 @@
         "affectsGlobalScope": false
       },
       "../src/baskets/schemas/basket.ts": {
-        "version": "2b7d12172ef27fe07b3fbe2399364f2d9de96fdac64a7e0d9779b5ab6a99fd75",
-        "signature": "d03a41fb63975cc00a5027fda3a671ba795442dbeb758fac38bf664b4c792db6",
+        "version": "e36a0a3f933bbaf68e33f12867d4c32cd8b8bfc7728192b21f16dbf8ee364d30",
+        "signature": "13d1edf0ce5699dc591a22b7dca752a50f6f4974e462c12a1905b7186a367efd",
         "affectsGlobalScope": false
       },
       "../src/baskets/schemas/schema.basket.ts": {
-        "version": "08ca1cff4ef951b36fa256abb77669b8fd0c03162ad54b6c90227e14712ab236",
-        "signature": "1a4deabd232357a106e3097bba3e4c64e760852d12ec67eddabd7c3962c657a5",
+        "version": "fcf4a64928af356358dc2fb1176a072be6be09b91c4015e1d9eb4a70901d1969",
+        "signature": "a48173b07dc7cd971ebce887d14abdd69e74916a1e844625758e43799794af56",
         "affectsGlobalScope": false
       },
       "../src/baskets/baskets.service.ts": {
-        "version": "7edbb7e50726b3ce1eebef4215ec6f5fbc9d30cc14b596b9cdba0fc4b52cb0db",
+        "version": "feb11a99fb2027ea46bfe4dbff68fb6e28a0aef2634cfca8d89695dd1e31bddd",
         "signature": "ae6bc35a7ff806193a4ef9275e2acdbda30b58d48a087e47acc7228f17778fbd",
         "affectsGlobalScope": false
       },

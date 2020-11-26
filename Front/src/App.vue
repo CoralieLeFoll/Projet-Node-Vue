@@ -1,7 +1,8 @@
 <template>
 <div class="app">
       <NavLink :isLogged="$store.getters.isLogged" />
-      <SnackBar></SnackBar>
+      <SnackBar></SnackBar>            
+      <Footer />
 </div>
 </template>
 
@@ -9,12 +10,14 @@
 // COMPONENTS
 import NavLink from "./components/NavLink.vue";
 import SnackBar from "./components/SnackBar";
+import Footer from "./components/Footer";
 
 export default {
   name: "App",
   components: {
     NavLink,
-    SnackBar
+    SnackBar,
+    Footer
   },
   created() {
     this.checkUserInfos();

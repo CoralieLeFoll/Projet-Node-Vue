@@ -77,6 +77,7 @@ export default {
             await this.$store.dispatch("signin", user);
             var customer = this.$store.getters.getUserInfos
             if(this.$store.getters.isLogged) {
+              await this.$store.dispatch("createBasket", customer._id)
               localStorage.setItem("user", JSON.stringify({ ...customer }));
               this.$router.push("/");
             }

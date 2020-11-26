@@ -12,6 +12,19 @@ export default {
     },
 
     actions: {
+        async createBasket({ dispatch }, id) {
+            var basket = {
+                products: [],
+                customerId: id,
+            }
+            await axios.post(`http://localhost:3000/baskets`, basket)
+                .then(function () {
+                    dispatch('loadBasket')
+                })
+                .catch(function (error) {
+                    console.log(error);
+            })
+        },
         async loadBasket({ commit }, id) {
             await axios.get(`http://localhost:3000/baskets/${id}`)
                 .then(function (response) {

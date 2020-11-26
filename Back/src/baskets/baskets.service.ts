@@ -19,14 +19,21 @@ export class BasketsService {
 
     async add(customerId: string, productId: string): Promise<Basket> {
       var basket = new BasketSchema()
-      console.log(customerId)
       await this.basketModel.findOne({ customerId: customerId }).exec().then(
         async basket => {
-          console.log(basket)
-          basket.productIds.push(productId);
+          var newProduct = true
+          basket.products.forEach(async products => {
+            if(products.productId == productId) {
+              newProduct = false
+              products.quantity += 1
+              return
+            }
+          });
+          if(newProduct) {
+            basket.products.push({productId, quantity: 1})
+          }
           basket = await this.basketModel.findByIdAndUpdate(basket._id, basket)
-        }
-      );
+        });
       return basket
     }
 
@@ -35,9 +42,14 @@ export class BasketsService {
       await this.basketModel.findOne({ customerId: customerId }).then(
         async basket => {
           var position = 0
-          basket.productIds.forEach(products => {
-            if(products == productId) {
-              basket.productIds.splice(position, 1)
+          basket.products.forEach(products => {
+            if(products.productId == productId) {
+              if (products.quantity > 1) {
+                products.quantity -= 1
+              }
+              else {
+                basket.products.splice(position, 1)
+              }
               return
             }
             position++
@@ -52,7 +64,8 @@ export class BasketsService {
       var basket = new BasketSchema()
       await this.basketModel.findOne({ customerId: id }).then(
         async basket => {
-          basket.productIds = []
+          console.log(basket)
+          basket.products = []
           basket = await this.basketModel.findByIdAndUpdate(basket._id, basket)
         }
       );

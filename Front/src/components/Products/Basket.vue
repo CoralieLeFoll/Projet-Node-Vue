@@ -7,7 +7,8 @@
         </md-card-header>
 
         <md-card-content>
-          {{product.description}}
+          {{product.description}} <br>
+          {{product.price}} €
         </md-card-content>
 
         <md-card-actions>

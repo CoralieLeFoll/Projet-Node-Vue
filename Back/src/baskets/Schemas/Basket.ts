@@ -7,7 +7,7 @@ export class Basket extends Document {
     customerId: string;
 
     @Prop()
-    productIds: Array<string>;
+    products: Array<{productId: string, quantity: number}>;
 }
 
 export const BasketSchema = SchemaFactory.createForClass(Basket);
