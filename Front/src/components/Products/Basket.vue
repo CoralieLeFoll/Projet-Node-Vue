@@ -23,6 +23,8 @@
       </md-card>
     </div>
     <h1 v-show="products == null || products.length < 1"> Il n'y a pas de produits </h1>
+
+    <h2 class="md-nav"> Prix Total : {{totalPrice}} €</h2>
     <md-button class="md-raised md-accent" @click="deleteAllProducts"> Supprimer tout les produits </md-button>
   </div>
 </template>
@@ -46,6 +48,13 @@ export default {
     computed: {
       products() {
         return this.$store.getters.getBasket
+      },
+      totalPrice() {
+        var totalPrice = 0
+        this.products.forEach(p => {
+          totalPrice += (p.price*p.quantity)
+        });
+        return totalPrice
       }
     },
     methods: {
