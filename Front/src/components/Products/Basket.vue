@@ -3,15 +3,19 @@
     <div v-for="product in products" :key="product._id">
       <md-card >
         <md-card-header>
-          <div class="md-title"> {{product.name}} </div>
+          <div class="md-title"> {{product.name}}</div>
         </md-card-header>
 
         <md-card-content>
           {{product.description}} <br>
-          {{product.price}} €
+          {{product.price}} € <br>
+          <span class="md-primary"> quantité : {{product.quantity}} </span>
         </md-card-content>
 
         <md-card-actions>
+          <md-button class="md-fab md-primary" @click="addProduct(product._id)">
+            <md-icon>add_shopping_cart</md-icon>
+          </md-button>
           <md-button class="md-fab md-accent" @click="deleteProduct(product._id)">
             <md-icon>delete</md-icon>
           </md-button>
@@ -45,9 +49,15 @@ export default {
       }
     },
     methods: {
+      async addProduct (id) {
+        var customer = await this.$store.getters.getUserInfos
+        this.$store.dispatch('addProductToBasket', { customerId: customer._id, productId: id })
+        this.$router.go()
+      },
         async deleteProduct (id) {
           var customer = await this.$store.getters.getUserInfos
           this.$store.dispatch('deleteBasketProducts', { customerId: customer._id, productId: id })
+          this.$router.go()
       },
         async deleteAllProducts () {
           var customer = await this.$store.getters.getUserInfos

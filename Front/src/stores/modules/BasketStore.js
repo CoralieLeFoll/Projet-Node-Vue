@@ -29,10 +29,12 @@ export default {
             await axios.get(`http://localhost:3000/baskets/${id}`)
                 .then(function (response) {
                     var products = []
-                    if(response.data.productIds) {
-                        response.data.productIds.forEach(async p => {
-                            await axios.get(`http://localhost:3000/products/${p}`)
+                    if(response.data.products) {
+                        response.data.products.forEach(async p => {
+                            var quantity = p.quantity
+                            await axios.get(`http://localhost:3000/products/${p.productId}`)
                                 .then(function (response) {
+                                    response.data.quantity = quantity
                                     products.push(response.data)
                                 })
                                 .catch(function (error) {

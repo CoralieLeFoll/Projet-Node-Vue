@@ -46,7 +46,6 @@ let BasketsService = class BasketsService {
     add(customerId, productId) {
         return __awaiter(this, void 0, void 0, function* () {
             var basket = new schema_basket_1.BasketSchema();
-            console.log(customerId);
             yield this.basketModel.findOne({ customerId: customerId }).exec().then((basket) => __awaiter(this, void 0, void 0, function* () {
                 var newProduct = true;
                 basket.products.forEach((products) => __awaiter(this, void 0, void 0, function* () {
