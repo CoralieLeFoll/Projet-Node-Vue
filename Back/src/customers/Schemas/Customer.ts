@@ -17,6 +17,9 @@ export class Customer extends Document {
   
   @Prop()
   password: string;
+
+  @Prop()
+  isAdmin: boolean;
 }
 
 export const CustomerSchema = SchemaFactory.createForClass(Customer);

@@ -9,38 +9,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CustomerSchema = exports.Customer = void 0;
+exports.OrderSchema = exports.Order = void 0;
 const mongoose_1 = require("@nestjs/mongoose");
 const mongoose_2 = require("mongoose");
-let Customer = class Customer extends mongoose_2.Document {
+let Order = class Order extends mongoose_2.Document {
 };
 __decorate([
     mongoose_1.Prop(),
     __metadata("design:type", String)
-], Customer.prototype, "name", void 0);
+], Order.prototype, "customerId", void 0);
 __decorate([
     mongoose_1.Prop(),
-    __metadata("design:type", String)
-], Customer.prototype, "surname", void 0);
+    __metadata("design:type", Array)
+], Order.prototype, "products", void 0);
 __decorate([
     mongoose_1.Prop(),
-    __metadata("design:type", String)
-], Customer.prototype, "birthdate", void 0);
-__decorate([
-    mongoose_1.Prop(),
-    __metadata("design:type", String)
-], Customer.prototype, "mail", void 0);
-__decorate([
-    mongoose_1.Prop(),
-    __metadata("design:type", String)
-], Customer.prototype, "password", void 0);
-__decorate([
-    mongoose_1.Prop(),
-    __metadata("design:type", Boolean)
-], Customer.prototype, "isAdmin", void 0);
-Customer = __decorate([
+    __metadata("design:type", Number)
+], Order.prototype, "totalPrice", void 0);
+Order = __decorate([
     mongoose_1.Schema()
-], Customer);
-exports.Customer = Customer;
-exports.CustomerSchema = mongoose_1.SchemaFactory.createForClass(Customer);
-//# sourceMappingURL=Customer.js.map
+], Order);
+exports.Order = Order;
+exports.OrderSchema = mongoose_1.SchemaFactory.createForClass(Order);
+//# sourceMappingURL=Order.js.map

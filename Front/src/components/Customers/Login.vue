@@ -51,7 +51,7 @@ export default {
             var customer = await this.$store.getters.getUserInfos
             if(this.$store.getters.isLogged) {
               await localStorage.setItem("user", JSON.stringify({ ...customer }));
-              this.$router.push("/");
+              this.$router.push("/").catch(()=>{});
             }
             else {
               console.log(this.input.password)

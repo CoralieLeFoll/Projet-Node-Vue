@@ -14,12 +14,13 @@ const mongoose_1 = require("@nestjs/mongoose");
 const products_module_1 = require("./products/products.module");
 const customers_module_1 = require("./customers/customers.module");
 const baskets_module_1 = require("./baskets/baskets.module");
+const orders_module_1 = require("./orders/orders.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     common_1.Module({
         imports: [mongoose_1.MongooseModule.forRoot('mongodb+srv://admin:admin@cluster0.fsx0k.mongodb.net/back?retryWrites=true&w=majority'),
-            products_module_1.ProductModule, customers_module_1.CustomerModule, baskets_module_1.BasketsModule],
+            products_module_1.ProductModule, customers_module_1.CustomerModule, baskets_module_1.BasketsModule, orders_module_1.OrdersModule],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
     })

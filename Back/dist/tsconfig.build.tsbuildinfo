@@ -1302,13 +1302,13 @@
         "affectsGlobalScope": false
       },
       "../src/customers/schemas/customer.ts": {
-        "version": "bfd592a450585e7bf6381d5bf9f9e64db5b077f216e27dd9c2bd715622e50629",
-        "signature": "fee21ee5bf7b2d7239a3e04600f8db462207930cb072562833a0ace52d7dee96",
+        "version": "f112828978de2b435d9558b93e9260a274fb4016175129310d0dbe5b32d0c0ed",
+        "signature": "690245364e0fea6b640ca04231bf8bd0c24ee22a9d31228308a7ae403f436134",
         "affectsGlobalScope": false
       },
       "../src/customers/schemas/schema.customer.ts": {
-        "version": "f1c24a6efefca36985f58dd9eb78d83c70e131a99069e0e96dd08f0d00e61f66",
-        "signature": "d5e845c9a5237c228be0d5234c8f384ebe004fe1bccced4eb4942fe1f29ab5f6",
+        "version": "17eb1f648c59a70e2ae48443966964737299b2d8d223cf15fc50b47fc0e11572",
+        "signature": "3c49e971000bbc8da8f20b1a42637b232172a6cb109ec38010def7ed3383fdab",
         "affectsGlobalScope": false
       },
       "../src/customers/schemas/schema.login.ts": {
@@ -1356,8 +1356,33 @@
         "signature": "58371854a671da4d435e5839952d522a7f57316e36b8d9aeb8fb8143360429c9",
         "affectsGlobalScope": false
       },
+      "../src/orders/schemas/order.ts": {
+        "version": "71161e3cb661a5b409d887bb44d42da7505e3677c57e87ba9b7784ced222e14d",
+        "signature": "63241defacc25cc1fea0f2d994095f250c3318e5f6778f35e15d776351b85832",
+        "affectsGlobalScope": false
+      },
+      "../src/orders/schemas/schema.order.ts": {
+        "version": "b0f39bc2f639cd93eff1bf8d1a41236a4feb611f3609e69d1782f9485ac59036",
+        "signature": "0a388fc86a9d01d096a193743f90ffed5fdcde035a32b9ec32d7251d56d0f452",
+        "affectsGlobalScope": false
+      },
+      "../src/orders/orders.service.ts": {
+        "version": "e7c4b4f1d1f3e0ee38a0c4563cd25fc0dfe90893e8a54f6335397210e3e6e173",
+        "signature": "9428696bbcb77f48c5da1acfa7cffb077e93a57d358b0174ba1bd0aad11b39de",
+        "affectsGlobalScope": false
+      },
+      "../src/orders/orders.controller.ts": {
+        "version": "2acf2d0fad8c8b8ee21785f32817fcac352857cf6ff6eda15ab9f316369c2584",
+        "signature": "b39aa2aece580ec0b1ef80c5f9c64355a6d51501aa6ad2f46701220f5795cacf",
+        "affectsGlobalScope": false
+      },
+      "../src/orders/orders.module.ts": {
+        "version": "e71f6f5f05b4b1cfb5b16839f2cd6a90e874ab0f1c518afe74705a509b22f89a",
+        "signature": "f2a098761374558eef78bc1c94d34464e78aba0b8a2a2b58cb009a7e88a54002",
+        "affectsGlobalScope": false
+      },
       "../src/app.module.ts": {
-        "version": "608fd8df6f923b88f5bd2c7b725bef8812dba1ae860ed44710b60d3d959e23f9",
+        "version": "06790d0e6be94615c217e80efa140379a51b0ae77a390f9d70993ff746aa05fd",
         "signature": "9fc7f7b6ad854404973b8cba8e6d883f758237991968e9a3965d716d46f1da88",
         "affectsGlobalScope": false
       },
@@ -3412,6 +3437,7 @@
         "../src/app.service.ts",
         "../src/baskets/baskets.module.ts",
         "../src/customers/customers.module.ts",
+        "../src/orders/orders.module.ts",
         "../src/products/products.module.ts"
       ],
       "../src/app.service.ts": [
@@ -3464,6 +3490,27 @@
       "../src/main.ts": [
         "../node_modules/@nestjs/core/index.d.ts",
         "../src/app.module.ts"
+      ],
+      "../src/orders/orders.controller.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../src/orders/orders.service.ts",
+        "../src/orders/schemas/schema.order.ts"
+      ],
+      "../src/orders/orders.module.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/mongoose/index.d.ts",
+        "../src/orders/orders.controller.ts",
+        "../src/orders/orders.service.ts",
+        "../src/orders/schemas/order.ts"
+      ],
+      "../src/orders/orders.service.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/mongoose/index.d.ts",
+        "../src/orders/schemas/order.ts",
+        "../src/orders/schemas/schema.order.ts"
+      ],
+      "../src/orders/schemas/order.ts": [
+        "../node_modules/@nestjs/mongoose/index.d.ts"
       ],
       "../src/products/products.controller.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
@@ -4820,6 +4867,15 @@
         "../src/customers/schemas/customer.ts",
         "../src/customers/schemas/schema.customer.ts",
         "../src/customers/schemas/schema.login.ts"
+      ],
+      "../src/orders/orders.controller.ts": [
+        "../src/orders/orders.service.ts",
+        "../src/orders/schemas/order.ts",
+        "../src/orders/schemas/schema.order.ts"
+      ],
+      "../src/orders/orders.service.ts": [
+        "../src/orders/schemas/order.ts",
+        "../src/orders/schemas/schema.order.ts"
       ],
       "../src/products/products.controller.ts": [
         "../src/products/products.service.ts",

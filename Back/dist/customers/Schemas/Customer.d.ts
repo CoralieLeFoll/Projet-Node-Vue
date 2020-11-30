@@ -5,5 +5,6 @@ export declare class Customer extends Document {
     birthdate: string;
     mail: string;
     password: string;
+    isAdmin: boolean;
 }
 export declare const CustomerSchema: any;

@@ -1,6 +1,6 @@
 <template>
 <div class="app">
-      <NavLink :isLogged="$store.getters.isLogged" />
+      <NavLink :isLogged="$store.getters.isLogged" :isAdmin="$store.getters.isAdmin" />
       <SnackBar></SnackBar>            
       <Footer />
 </div>

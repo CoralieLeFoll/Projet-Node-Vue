@@ -20,7 +20,7 @@
               <i class="material-icons">perm_contact_calendar</i>Inscription</md-button>
             <md-menu md-align-trigger v-else>
               <md-button md-menu-trigger :to="`/account`"> 
-                <i class="material-icons">person</i>Compte
+                <i class="material-icons">person</i>{{isAdmin ? "Compte admin" : "Compte"}}
               </md-button>
               <md-button md-menu-trigger :to="`/basket`"> 
                 <i class="material-icons">shopping_basket</i>Panier
@@ -60,13 +60,14 @@ export default {
 
   props: {
     isLogged: Boolean,
+    isAdmin: Boolean
   },
 
   methods: {
     logout() {
       this.$store.commit("clearInfos");
       localStorage.removeItem("user");
-      this.$router.push("/");
+      this.$router.push("/").catch(()=>{});
     }
   }
 };

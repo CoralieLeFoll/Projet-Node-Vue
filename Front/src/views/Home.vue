@@ -4,7 +4,7 @@
     <h1>Accueil</h1>
     <p>
       Ce projet a pour but de représenter le fonctionnement d'un commerce en ligne : 
-      <a @click="$router.push('/about')" target="_blank" rel="noopener">Pour en savoir plus</a>.
+      <a @click="$router.push('/about').catch(()=>{});" target="_blank" rel="noopener">Pour en savoir plus</a>.
     </p>
     <h3>Produits</h3>
     <ul>

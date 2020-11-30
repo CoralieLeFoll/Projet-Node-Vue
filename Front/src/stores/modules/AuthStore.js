@@ -64,6 +64,10 @@ export default {
             return state.logged;
         },
 
+        isAdmin(state) {
+            return state.infos?.isAdmin;
+        },
+
         getUserInfos(state) {
             return state.infos;
         }

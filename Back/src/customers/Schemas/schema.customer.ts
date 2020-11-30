@@ -4,4 +4,5 @@ export class CustomerSchema {
     readonly birthdate: string;
     readonly mail: string;
     readonly password: string;
+    readonly isAdmin: boolean;
   }

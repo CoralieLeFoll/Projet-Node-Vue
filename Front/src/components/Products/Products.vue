@@ -1,8 +1,7 @@
 <template>
   <div>
-    <!-- 
-TODO : côté administrateur à faire -->
-    <CreateProduct/>
+
+    <CreateProduct v-if="isAdmin"/>
     <div v-for="product in products" :key="product._id">
       <Product v-if="change && product._id == changedProductId" :change="change" :changedProductId="changedProductId" @update="change = $event;"/>
       <md-card v-else-if="!change || product._id != changedProductId">
@@ -14,18 +13,20 @@ TODO : côté administrateur à faire -->
           {{product.description}} <br>
           {{product.price}} €
         </md-card-content>
-<!-- 
-TODO : côté administrateur à faire -->
-        <!-- <md-card-actions>
+
+        <md-card-actions v-if="isAdmin">
           <md-button class="md-fab md-accent" @click="deleteProduct(product._id)">
             <md-icon>delete</md-icon>
           </md-button>
           <md-button class="md-fab md-primary" @click="changeProduct(product._id)">
             <md-icon>edit</md-icon>
           </md-button>
-        </md-card-actions> -->
+          <md-button class="md-fab md-primary" @click="addProduct(product._id)">
+            <md-icon>add_shopping_cart</md-icon>
+          </md-button>
+        </md-card-actions>
 
-        <md-card-actions>
+        <md-card-actions v-else>
           <md-button class="md-fab md-primary" @click="addProduct(product._id)">
             <md-icon>add_shopping_cart</md-icon>
           </md-button>
@@ -67,6 +68,9 @@ export default {
     computed: {
       products() {
         return this.$store.getters.getProducts
+      },
+      isAdmin() {
+        return this.$store.getters.isAdmin
       }
     },
     methods: {
