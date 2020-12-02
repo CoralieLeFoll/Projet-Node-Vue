@@ -1,4 +1,5 @@
 <template>
+<div>
       <md-card class="md-layout-item">
         <md-card-header>
           <div class="md-title">Données personnelles</div>
@@ -50,7 +51,10 @@
           <md-button type="button" class="md-primary" v-on:click="save()">Sauvegarder</md-button>
         </md-card-actions>
       </md-card>
-    
+
+  <md-button type="button" class="md-nav" v-on:click="$router.push('/orders').catch(()=>{});">Voir mes commandes</md-button>
+
+</div>
 </template>
 
 <script>

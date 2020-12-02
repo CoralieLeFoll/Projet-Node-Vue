@@ -22,10 +22,18 @@
         </md-card-actions>
       </md-card>
     </div>
-    <h1 v-show="products == null || products.length < 1"> Il n'y a pas de produits </h1>
 
-    <h2 class="md-nav"> Prix Total : {{totalPrice}} €</h2>
-    <md-button class="md-raised md-accent" @click="deleteAllProducts"> Supprimer tout les produits </md-button>
+    <div v-show="products.length < 1">
+      <h1> Le panier est vide. </h1>
+      <a @click="$router.push('/products').catch(()=>{});" target="_blank" rel="noopener">Cliquer ici pour voir nos produits.</a>
+    </div>
+
+    <div v-show="products.length > 0" class="basket-right">
+      <h2 class="md-nav"> Prix Total : {{totalPrice}} €</h2>
+      <md-button class="md-primary" @click="validateBasket">Valider mon panier</md-button>
+    </div>
+
+    <md-button v-show="products.length > 0" class="md-raised md-accent" @click="deleteAllProducts"> Vider le panier </md-button>
   </div>
 </template>
 
@@ -35,6 +43,14 @@
     margin: 4px;
     display: inline-block;
     vertical-align: top;
+  }
+  .basket-right {
+    position:absolute;
+    margin-left: 60%;
+    margin-top: -15%;
+    border: 3px solid gray;
+    padding : 2%;
+    border-radius: 5%;
   }
 </style>
 
@@ -71,7 +87,18 @@ export default {
         async deleteAllProducts () {
           var customer = await this.$store.getters.getUserInfos
           this.$store.dispatch('deleteBasket', customer._id)
-      }
+      },
+        async validateBasket() {
+          var customer = await this.$store.getters.getUserInfos
+          var order = {
+            customerId: customer._id,
+            products: this.products,
+            totalPrice: this.totalPrice
+          }
+          this.$store.dispatch('createOrder', order)
+          this.$store.dispatch('deleteBasket', customer._id)
+          this.$store.commit("showErrorSnackbar", "Commande envoyée")
+        }
     }
 }
 </script>

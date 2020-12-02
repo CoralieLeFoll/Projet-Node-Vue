@@ -8,6 +8,7 @@ import Signin from '../components/Customers/Signin.vue'
 import Account from '../components/Customers/Account.vue'
 import Products from '../components/Products/Products.vue'
 import Basket from '../components/Products/Basket.vue'
+import Orders from '../components/Customers/Orders.vue'
 
 Vue.use(VueRouter)
 
@@ -66,6 +67,19 @@ const routes = [
     },
     meta: {
       title: 'Store - Compte',
+    }
+  },
+  {
+    path: '/orders',
+    name: 'Orders',
+    component: Orders,
+    beforeEnter: (to, from, next) => {
+      let user = JSON.parse(localStorage.getItem("user"));
+      if (!user) next({ name: 'Home' })
+      else next()
+    },
+    meta: {
+      title: 'Store - Commandes',
     }
   },
   {
