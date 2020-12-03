@@ -28,6 +28,7 @@ const mongoose_1 = require("mongoose");
 const mongoose_2 = require("@nestjs/mongoose");
 const Basket_1 = require("./Schemas/Basket");
 const schema_basket_1 = require("./Schemas/schema.basket");
+var _ = require('lodash');
 let BasketsService = class BasketsService {
     constructor(basketModel) {
         this.basketModel = basketModel;
@@ -47,17 +48,17 @@ let BasketsService = class BasketsService {
         return __awaiter(this, void 0, void 0, function* () {
             var basket = new schema_basket_1.BasketSchema();
             yield this.basketModel.findOne({ customerId: customerId }).exec().then((basket) => __awaiter(this, void 0, void 0, function* () {
-                var newProduct = true;
-                basket.products.forEach((products) => __awaiter(this, void 0, void 0, function* () {
-                    if (products.productId == productId) {
-                        newProduct = false;
-                        products.quantity += 1;
-                        return;
-                    }
-                }));
-                if (newProduct) {
-                    basket.products.push({ productId, quantity: 1 });
-                }
+                basket.products.push({ productId, quantity: 1 });
+                let newBasket = _(basket.products)
+                    .groupBy('productId')
+                    .map((objs, key) => {
+                    return {
+                        'productId': key,
+                        'quantity': _.sumBy(objs, 'quantity')
+                    };
+                })
+                    .value();
+                basket.products = newBasket;
                 basket = yield this.basketModel.findByIdAndUpdate(basket._id, basket);
             }));
             return basket;
@@ -67,19 +68,17 @@ let BasketsService = class BasketsService {
         return __awaiter(this, void 0, void 0, function* () {
             var basket = new schema_basket_1.BasketSchema();
             yield this.basketModel.findOne({ customerId: customerId }).then((basket) => __awaiter(this, void 0, void 0, function* () {
-                var position = 0;
-                basket.products.forEach(products => {
-                    if (products.productId == productId) {
-                        if (products.quantity > 1) {
-                            products.quantity -= 1;
-                        }
-                        else {
-                            basket.products.splice(position, 1);
-                        }
-                        return;
-                    }
-                    position++;
-                });
+                let newBasket = _(basket.products)
+                    .groupBy('productId')
+                    .map((objs, key) => {
+                    return {
+                        'productId': key,
+                        'quantity': _.sumBy(objs, 'quantity') - 1
+                    };
+                })
+                    .value();
+                newBasket = _.dropWhile(newBasket, function (p) { return p.quantity <= 0; });
+                basket.products = newBasket;
                 basket = yield this.basketModel.findByIdAndUpdate(basket._id, basket);
             }));
             return basket;

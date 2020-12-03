@@ -1342,7 +1342,7 @@
         "affectsGlobalScope": false
       },
       "../src/baskets/baskets.service.ts": {
-        "version": "cf55908c00491bc0abe22562213f4c829a8dca4beb63f1874a95740ae7c49880",
+        "version": "735f84fc71511897965e69e9cd30b54ac513a1ac3160ea409efdcd636c2d928e",
         "signature": "ae6bc35a7ff806193a4ef9275e2acdbda30b58d48a087e47acc7228f17778fbd",
         "affectsGlobalScope": false
       },

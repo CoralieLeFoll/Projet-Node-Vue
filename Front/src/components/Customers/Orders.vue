@@ -2,7 +2,7 @@
 <div>
     <div v-for="order in orders" :key="order._id">
     <h1> Commande n°{{order._id}} </h1>
-    
+    <h3> Prix total : {{order.totalPrice}} € </h3>
     <div v-for="product in order.products" :key="product._id">
       <md-card>
         <md-card-header>
